@@ -1,4 +1,6 @@
+import { Link, NavLink } from 'react-router-dom'
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Cartwidget } from '../Cartwidget/Cartwidget'
 
 // import 
 const NavBar = ({ componente }) => {
@@ -7,12 +9,13 @@ const NavBar = ({ componente }) => {
     <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Container>
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+          <NavLink className={({isActive})=> isActive ? 'btn btn-primary': 'btn btn-outline-primary' } to="/">React-Bootstrap</NavLink>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
-              <Nav.Link href="#features">Gorras</Nav.Link>
-              <Nav.Link href="#pricing">Remeras</Nav.Link>
+              <NavLink className='btn btn-outline-primary' to="/category/gorras">Gorras</NavLink>
+              <NavLink className='btn btn-outline-primary' to="/category/remeras">Remeras</NavLink>
+              {/* <NavLink to="">Remeras</NavLink> */}
               {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                   <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.2">
@@ -26,10 +29,11 @@ const NavBar = ({ componente }) => {
               </NavDropdown> */}
               </Nav>
               <Nav>
-              <Nav.Link href="#deets">More deets</Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                  Dank memes
-              </Nav.Link>
+              {/* <Nav.Link href="#deets">More deets</Nav.Link> */}
+              
+                <NavLink className='btn btn-outline-primary' to='/cart'>
+                  <Cartwidget />
+                </NavLink>
               </Nav>
           </Navbar.Collapse>
           </Container>
@@ -37,6 +41,8 @@ const NavBar = ({ componente }) => {
         
       </Navbar>
       {/* {componente({})} */}
+
+      
     </>
   )
 }

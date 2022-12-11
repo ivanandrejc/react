@@ -1,0 +1,9 @@
+POST https://xxxxxxxx.com 
+//cabecera
+Content-Type: application/json
+//body
+{
+    "nombre":"Federico",
+    "apllido": "osandon",
+    "eamil": "asdfjasdf"
+}
